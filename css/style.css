@@ -32,13 +32,13 @@ a, li{
     font-weight: bold;
 }
 
-.nav__menu {
+#nav {
     display: flex;
+    align-items: center;
 }
 
 .ul__menu {
     display: flex;
-    align-items: center;
 }
 
 .ul__menu li a {
@@ -51,4 +51,72 @@ a, li{
 
 .ul__menu li a:hover {
     background: rgb(119, 118, 118);
+}
+
+.menu__mobile {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.moba {
+    background: white;
+    width: 20px;
+    height: 2px;
+    margin: 2px;
+}
+
+@media (max-width: 900px) {
+    .menu__header {
+        align-items: center;
+    }
+
+    #menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    right: 0;
+    background: rgb(199, 196, 196);
+    height: 0;
+    z-index: 10000;
+    transition: .6s;
+    visibility: hidden;
+    overflow-y: hidden;
+   }
+
+   .ul__menu a {
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    border-bottom: 2px solid rgb(0, 0, 0, .05);
+   }
+
+   .menu__mobile {
+    visibility: visible;
+   }
+   
+   #nav.active #menu {
+    height: calc(100vh - 80px);
+    visibility: visible;
+    overflow: auto;
+   }
+
+   #nav.active .item1{
+       display: none;
+   }
+
+   #nav.active .item2{
+    transform: rotate(135deg);
+    transition: .6s;
+   }
+
+   #nav.active .item3 {
+    transform: rotate(-135deg);
+    position: relative;
+    top: -6px;
+    transition: .6s;
+   }
+    
 }
